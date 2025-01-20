@@ -6,12 +6,13 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:17:28 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/17 18:43:38 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 13:06:26 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
+
 static void	min_top_4(t_stack **a, t_stack **b)
 {
 	if ((*b)->order == 4 || (*b)->next->order == 4)
@@ -70,8 +71,27 @@ static void	min_top_3(t_stack **a, t_stack **b)
 	}
 }
 
+static int is_min_lonely(t_stack **b, t_chunk *chunk)
+{
+	t_stack *head;
+	int	i;
+
+	i = 1;
+	head = *b;
+	while (i++ != chunk->min_size)
+			head = head->next;
+	if (!(head->next))
+		return (1);
+	return (0);
+}
+
 void	min_is_top(t_stack **a, t_stack **b, t_chunk *chunk)
 {
+	if (is_min_lonely(b, chunk) == 1)
+	{
+		min_lonely_sort(a, b, chunk);
+		return ;
+	}
 	if (chunk->min_size == 2)
 	{
 		ft_check_swap(NULL, b);

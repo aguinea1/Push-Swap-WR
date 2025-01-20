@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 17:53:01 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/19 02:42:45 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 12:53:47 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	sort_max(t_stack **a, t_stack **b, t_chunk *chunk);
 void	sort_max_top(t_stack **a, t_stack **b, t_chunk *chunk);
 void	small_sort(t_stack **a, t_stack **b, t_chunk *new, int flag);
 void	sort_max_bot(t_stack **a, t_stack **b, t_chunk *chunk);
+void	min_lonely_sort(t_stack **a, t_stack **b, t_chunk *chunk);
 
 // RECURSIVE && MORE
 t_chunk	*decide_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag);
