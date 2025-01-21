@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:47:44 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 13:01:25 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 20:04:33 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,36 @@ int	lonely_max(t_stack **a, t_chunk *chunk)
 	if (head->next == NULL)
 		return (1);
 	return (0);
+}
+
+int	chunk_is_sorted(t_stack *a, int size)
+{
+	int	i;
+	t_stack *head;
+
+	head = a->next;
+	i = 0;
+	while (++i < size)
+	{
+		if (head->order < head->prev->order)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
+int	chunk_is_sorted_reverse(t_stack *a, int size)
+{
+	int	i;
+	t_stack *head;
+
+	head = a->next;
+	i = 0;
+	while (++i < size)
+	{
+		if (head->order > head->prev->order)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }

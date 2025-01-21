@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:50:15 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/16 13:55:16 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 20:08:12 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ static void	sort_four(t_stack **a, t_stack **b)
 
 void	sort_max_top(t_stack **a, t_stack **b, t_chunk *chunk)
 {
+	if (chunk_is_sorted(*a, chunk->top_size) == 1)
+		return ;
 	if (chunk->top_size == 2)
 	{
 		ft_check_swap(a, NULL);

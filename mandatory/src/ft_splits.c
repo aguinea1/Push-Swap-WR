@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:15:25 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/19 02:48:17 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 20:16:14 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -41,7 +41,7 @@ t_chunk	*split_chunk_bot(t_stack **analyze, t_stack **split, int size, t_stack *
 	if (!new)
 		return (NULL);
 	new->divison = size;
-	new->min_size = size / 3;
+	new->min_size = (size / 3);
 	if (size % 3 == 2)
 	{
 		new->mid_size = (size / 3) + 1;
@@ -55,7 +55,7 @@ t_chunk	*split_chunk_bot(t_stack **analyze, t_stack **split, int size, t_stack *
 	else
 	{
 		new->mid_size = size / 3;
-		new->top_size = size / 3;
+		new->top_size = (size / 3);
 	}
 	deal_bot(split, analyze, new,  a);
 	if	(a != analyze)

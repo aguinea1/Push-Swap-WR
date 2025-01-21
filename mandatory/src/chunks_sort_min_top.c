@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:17:28 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 13:06:26 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 19:47:20 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,37 @@ static int is_min_lonely(t_stack **b, t_chunk *chunk)
 		return (1);
 	return (0);
 }
+static void	min_push(t_stack **a, t_stack **b, t_chunk *chunk)
+{
+	if (chunk->min_size == 2)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+	}
+	else if (chunk->min_size == 3)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+		pa(a, b, 2);
+	}
+	else if (chunk->min_size == 1)
+		pa(a, b, 2);
+	else if (chunk->min_size == 4)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+		pa(a, b, 2);
+		pa(a, b, 2);
+	}
+}
 
 void	min_is_top(t_stack **a, t_stack **b, t_chunk *chunk)
 {
+	if (chunk_is_sorted_reverse(*b, chunk->min_size) == 1)
+	{
+		min_push(a, b, chunk);
+		return ;
+	}
 	if (is_min_lonely(b, chunk) == 1)
 	{
 		min_lonely_sort(a, b, chunk);

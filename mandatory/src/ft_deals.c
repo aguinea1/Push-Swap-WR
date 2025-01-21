@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 21:48:59 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/19 02:02:17 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 16:12:32 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,30 @@ void ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a)
 	{
 		if (new->min_size >= (*analyze)->order)
 		{
-			deal_min(analyze, split, a, 0);
+			if ((i + 1 < new->divison ) && analyze == a && (*analyze)->next->order > (new->min_size + new->mid_size))
+			{
+				deal_rr_min(analyze, split, max, new);
+				max++;
+				i++;
+			}
+			else
+				deal_min(analyze, split, a, 0);
 		}
 		else if ((new->min_size + new->mid_size) >= (*analyze)->order)
 		{
-			mid++;
-			if (mid == 1)
-				new->mid = *analyze;
-			deal_mid(analyze, split, a, 0);
+			if ((i + 1 < new->divison) && analyze != a && (*analyze)->next->order <= new->min_size)
+			{
+				deal_rr_mid(analyze, split, mid, new);
+				mid++;
+				i++;
+			}
+			else
+			{
+				mid++;
+				if (mid == 1)
+					new->mid = *analyze;
+				deal_mid(analyze, split, a, 0);
+			}
 		}
 		else
 		{

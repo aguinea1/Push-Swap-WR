@@ -6,7 +6,7 @@
 #    By: aguinea <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 12:22:41 by aguinea           #+#    #+#              #
-#    Updated: 2025/01/20 12:51:08 by aguinea          ###   ########.fr        #
+#    Updated: 2025/01/20 17:13:30 by aguinea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,21 +88,23 @@ INCLUDE			= $(HEADER) $(HEAD_BONUS) $(HEAD_LIBFT)
 
 BONUS_SRCS		= $(BONUS_SRC)/checker_main.c
 
-SRCS 			= $(SRC_DIR)/main.c						\
-				  $(SRC_DIR)/little_sort.c 				\
-				  $(SRC_DIR)/chunks_resolve.c			\
-				  $(SRC_DIR)/chunks_utils.c				\
-				  $(SRC_DIR)/chunks_utils2.c			\
-				  $(SRC_DIR)/chunks_sort_max_bottom.c	\
-				  $(SRC_DIR)/chunks_sort_max_top.c		\
-				  $(SRC_DIR)/chunks_sort_mid_top.c		\
-				  $(SRC_DIR)/chunks_sort_min_bottom.c	\
-				  $(SRC_DIR)/sort_max.c					\
-				  $(SRC_DIR)/chunks_sort_mid_bottom.c	\
-				  $(SRC_DIR)/chunks_sort_min_top.c		\
-				  $(SRC_DIR)/ft_splits.c				\
-				  $(SRC_DIR)/ft_deals.c					\
-				  $(SRC_DIR)/lonely_min_sort.c
+SRCS 			= $(SRC_DIR)/main.c							\
+				  $(SRC_DIR)/little_sort.c 					\
+				  $(SRC_DIR)/chunks_resolve.c				\
+				  $(SRC_DIR)/chunks_utils.c					\
+				  $(SRC_DIR)/chunks_utils2.c				\
+				  $(SRC_DIR)/chunks_sort_max_bottom.c		\
+				  $(SRC_DIR)/chunks_sort_max_top.c			\
+				  $(SRC_DIR)/chunks_sort_mid_top.c			\
+				  $(SRC_DIR)/chunks_sort_min_bottom.c		\
+				  $(SRC_DIR)/sort_max.c						\
+				  $(SRC_DIR)/chunks_sort_mid_bottom.c		\
+				  $(SRC_DIR)/chunks_sort_min_top.c			\
+				  $(SRC_DIR)/ft_splits.c					\
+				  $(SRC_DIR)/ft_deals.c						\
+				  $(SRC_DIR)/lonely_min_sort.c				\
+				  $(SRC_DIR)/optimization_double_rotate.c	\
+				  $(SRC_DIR)/sort_min_mid_bot.c
 
 
 SHARED_SRCS		= $(SHARED)/parsing.c			\

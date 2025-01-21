@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:31:25 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/15 10:23:54 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 19:44:00 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,38 @@ void	sort_mid_three(t_stack **a, t_stack **b)
 		ft_check_swap(a, NULL);
 	}
 }
+
+static void	mid_push(t_stack **a, t_stack **b, t_chunk *chunk)
+{
+	if (chunk->mid_size == 2)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+	}
+	else if (chunk->mid_size == 3)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+		pa(a, b, 2);
+	}
+	else if (chunk->mid_size == 1)
+		pa(a, b, 2);
+	else if (chunk->mid_size == 4)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+		pa(a, b, 2);
+		pa(a, b, 2);
+	}
+}
+
 void	sort_mid(t_stack **a, t_stack **b, t_chunk *chunk)
 {
+	if (chunk_is_sorted_reverse(*b, chunk->mid_size) == 1)
+	{
+		mid_push(a, b, chunk);
+		return ;
+	}
 	if (chunk->mid_size == 4)
 	{
 		if ((*b)->order == 4 || (*b)->next->order == 4)

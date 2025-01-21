@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:02:24 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/19 02:55:02 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/20 21:15:40 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,30 @@ static	void	sort_four_max_a(t_stack **a, t_stack **b)
 	ft_check_swap(a, NULL);
 }
 
+/*static void	sorted_top(t_stack **a, t_chunk *chunk)
+{
+	rra(a, 2);
+	if (chunk->top_size == 2)
+		rra(a, 2);
+	else if (chunk->top_size == 3)
+	{
+		rra(a, 2);
+		rra(a, 2);
+	}
+	else if(chunk->top_size == 4)
+	{
+		rra(a, 2);
+		rra(a, 2);
+		rra(a, 2);
+	}
+}*/
 void	sort_max_bot(t_stack **a, t_stack **b, t_chunk *chunk)
 {
+/*	if (is_bot_sorted_rev(ft_lastnode(*a), chunk->top_size) == 1)
+	{
+		sorted_top(a, chunk);
+		return ;
+	}*/
 	if (chunk->top_size == 2)
 	{
 		rra(a, 2);
