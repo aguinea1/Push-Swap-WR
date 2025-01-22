@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:42:14 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/19 02:25:00 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 12:51:30 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,16 @@ int	ft_is_bottom(t_stack *check, t_stack *list)
 int	ft_lonely(t_stack *check, int size, t_stack *list)
 {
 	int i;
+	t_stack *temp;
 
-	i = 0;
-	while (i++ < size)
-		list = list->next;
-	if (check == list)
+	i = 1;
+	temp = list;
+	while (i < size)
+	{
+		temp = temp->next;
+		i++;
+	}
+	if (check == temp)
 		return (1);
 	return (0);
 }

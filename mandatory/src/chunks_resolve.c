@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:29:35 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/19 02:49:26 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 12:35:45 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_chunk	*decide_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag)
 	else if (flag == 3)
 	{
 		if (ft_is_bottom(chunk->top, *a) == 0
-			|| ft_lonely(chunk->top, chunk->top_size, *a) == 1)
+			|| ft_lonely(ft_lastnode(*a), chunk->top_size, *a) == 1)
 			return (result = split_chunk(a, b, chunk->top_size, a), result);
 		else
 			return (result = split_chunk_bot(a, b, chunk->top_size, a), result);

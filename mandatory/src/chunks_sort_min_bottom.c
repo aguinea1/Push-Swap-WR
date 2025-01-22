@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:29:21 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 21:14:28 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/21 13:08:02 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,11 +130,11 @@ static void	sorted_min_two(t_stack **a, t_stack **b, int size)
 	}
 	else if(size == 4)
 	{
-		rra(b, 2);
+		rrb(b, 2);
 		pa(a, b, 2);
-		rra(b, 2);
+		rrb(b, 2);
 		pa(a, b, 2);
-		rra(b, 2);
+		rrb(b, 2);
 		pa(a, b, 2);
 	}
 }

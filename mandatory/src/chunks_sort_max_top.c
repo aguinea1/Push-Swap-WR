@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:50:15 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 20:08:12 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/21 15:27:17 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ static void	lonely_sort_max_four(t_stack **a, t_stack **b)
 	else if (((*a)->order == 1 && (*a)->next->order == 2) || 
 			((*a)->order == 2 && (*a)->next->order == 1))
 	{
-		pb(a, b, 2);
-		pb(a, b, 2);
-		ft_check_swap(a, b);
-		pa(a, b, 2);
-		pa(a, b, 2);
+		if ((*a)->next->next->order == 3)
+			ft_check_swap(a, NULL);
+		else
+		{
+			pb(a, b, 2);
+			pb(a, b, 2);
+			ft_check_swap(a, b);
+			pa(a, b, 2);
+			pa(a, b, 2);
+		}
 		return ;
 	}
 	else if(((*a)->order == 3 && (*a)->next->order == 4) || 

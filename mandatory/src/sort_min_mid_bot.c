@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:52:14 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 17:14:34 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/21 15:07:16 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,53 @@ static void	sort_bottom_three_mid(t_stack **a, t_stack **b, t_chunk *chunk)
 	}
 }
 
+static void	sorted_mid(t_stack **a, t_stack **b, t_chunk *chunk)
+{
+	rrr(a, b, 2);
+	if (chunk->mid_size == 2)
+	{
+		if (chunk->min_size > 1)
+			rrr(a, b, 2);
+		else
+			rra(a, 2);
+	}
+	else if (chunk->mid_size == 3)
+	{
+		if (chunk->min_size == 2)
+		{
+			rrr(a, b, 2);
+			rra(a, 2);
+		}
+		else if (chunk->min_size == 3)
+		{
+			rrr(a, b, 2);
+			rrr(a, b, 2);
+		}
+	}
+	else if(chunk->mid_size == 4)
+	{
+		if (chunk->min_size == 4)
+		{
+			rrr(a, b, 2);
+			rrr(a, b, 2);
+			rrr(a, b, 2);
+		}
+		else if (chunk->min_size == 3)
+		{
+			rrr(a, b, 2);
+			rrr(a, b, 2);
+			rra(a, 2);
+		}
+	}
+}
+
 void	sort_mid_and_min_bot(t_stack **a, t_stack **b, t_chunk *chunk)
 {
+	if (is_bot_sorted_rev(ft_lastnode(*a), chunk->mid_size) == 1)
+	{
+		sorted_mid(a, b, chunk);
+		return ;
+	}
 	if (chunk->mid_size == 2)
 	{
 		rrr(a, b, 2);

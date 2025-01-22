@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 13:37:45 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 21:15:10 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:14:57 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	sort_bottom_three_mid(t_stack **a, t_stack **b, t_chunk *chunk)
 		ft_check_swap(a, NULL);
 	}
 }
-/*
+
 static void	sorted_mid(t_stack **a, t_chunk *chunk)
 {
 	rra(a, 2);
@@ -74,14 +74,14 @@ static void	sorted_mid(t_stack **a, t_chunk *chunk)
 		rra(a, 2);
 	}
 }
-*/
+
 void	sort_mid_bot(t_stack **a, t_stack **b, t_chunk *chunk)
 {
-	/*if (is_bot_sorted_rev(ft_lastnode(*a), chunk->mid_size) == 1)
+	if (is_bot_sorted_rev(ft_lastnode(*a), chunk->mid_size) == 1)
 	{
 		sorted_mid(a, chunk);
 		return ;
-	}*/
+	}
 	if (min_on_top(b, chunk) == 0)
 	{
 		sort_mid_and_min_bot(a, b, chunk);
