@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 17:53:01 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 20:48:16 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 20:17:34 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	sort_three(t_stack **a);
 void	sort_two(t_stack **a);
 void	alg_sort(t_stack **a, t_stack **b, int ac);
 
-
 //ALGORITHM
 
 // UTILS && MORE
@@ -89,15 +88,15 @@ int		check_stack(t_stack **a, t_chunk *chunk);
 void	small_nbr(t_stack *a, int size);
 void	min_is_top(t_stack **a, t_stack **b, t_chunk *chunk);
 t_stack	*find_mid(t_stack *c_analyze, t_chunk *new);
-int	ft_is_bottom(t_stack *check, t_stack *list);
-int	where_is_mid(t_stack *mid, t_stack *stack);
-int	ft_lonely(t_stack *check, int size, t_stack *list);
-int	min_on_top(t_stack **b, t_chunk *chunk);
+int		ft_is_bottom(t_stack *check, t_stack *list);
+int		where_is_mid(t_stack *mid, t_stack *stack);
+int		ft_lonely(t_stack *check, int size, t_stack *list);
+int		min_on_top(t_stack **b, t_chunk *chunk);
 
 // DEALS && SPLITS
 void	ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a);
 void	deal_bot(t_stack **split, t_stack **analyze, t_chunk *new, t_stack **a);
-t_chunk	*split_chunk_bot(t_stack **analyze, t_stack **split, int size, t_stack **a);
+t_chunk	*splchunkbot(t_stack **analyze, t_stack **split, int size, t_stack **a);
 t_chunk	*split_chunk(t_stack **analyze, t_stack **split, int size, t_stack **a);
 
 // MINI SORTS
@@ -115,6 +114,9 @@ void	sort_max_top(t_stack **a, t_stack **b, t_chunk *chunk);
 void	small_sort(t_stack **a, t_stack **b, t_chunk *new, int flag);
 void	sort_max_bot(t_stack **a, t_stack **b, t_chunk *chunk);
 void	min_lonely_sort(t_stack **a, t_stack **b, t_chunk *chunk);
+void	sort_min_three_bot(t_stack **a, t_stack **b);
+void	min_is_top_else(t_stack **a, t_stack **b);
+t_stack	*small_nbr_node(t_stack *node, int *current_order, int *min);
 
 // RECURSIVE && MORE
 t_chunk	*decide_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag);
@@ -122,11 +124,12 @@ void	recursive_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag);
 void	spec_resolve(t_stack **a, t_stack **b);
 
 // OPTIMIZATIONS
-void	deal_rr_mid(t_stack **analyze, t_stack **split, int mid, t_chunk *chunk);
+void	deal_rr_mid(t_stack **analyze, t_stack **split, int mid, t_chunk *new);
 void	deal_rr_min(t_stack **analyze, t_stack **split, int max, t_chunk *new);
 void	sort_mid_and_min_bot(t_stack **a, t_stack **b, t_chunk *chunk);
 int		chunk_is_sorted_reverse(t_stack *a, int size);
 int		chunk_is_sorted(t_stack *a, int size);
 int		is_bot_sorted(t_stack *stack, int size);
 int		is_bot_sorted_rev(t_stack *stack, int size);
+void	min_top_4_part2(t_stack **a, t_stack **b);
 #endif

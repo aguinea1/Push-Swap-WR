@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:50:15 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/21 15:27:17 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:44:23 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ static void	lonely_sort_max_four(t_stack **a, t_stack **b)
 {
 	if ((*a)->next->next->next->order == 4)
 		sort_three_top(a);
-
-	else if (((*a)->order == 1 && (*a)->next->order == 2) || 
-			((*a)->order == 2 && (*a)->next->order == 1))
+	else if (((*a)->order == 1 && (*a)->next->order == 2)
+		|| ((*a)->order == 2 && (*a)->next->order == 1))
 	{
 		if ((*a)->next->next->order == 3)
 			ft_check_swap(a, NULL);
@@ -54,8 +53,8 @@ static void	lonely_sort_max_four(t_stack **a, t_stack **b)
 		}
 		return ;
 	}
-	else if(((*a)->order == 3 && (*a)->next->order == 4) || 
-			((*a)->order == 4 && (*a)->next->order == 3))
+	else if (((*a)->order == 3 && (*a)->next->order == 4)
+		|| ((*a)->order == 4 && (*a)->next->order == 3))
 	{
 		if ((*a)->order == 4)
 			sa(a, 2);
@@ -63,11 +62,11 @@ static void	lonely_sort_max_four(t_stack **a, t_stack **b)
 		ra(a, 2);
 		ft_check_swap(a, b);
 	}
-	else 
+	else
 		lonely_max_sort_four_part2(a, b);
 }
 
-static void lonely_max_sort(t_stack **a, t_stack **b, t_chunk *chunk)
+static void	lonely_max_sort(t_stack **a, t_stack **b, t_chunk *chunk)
 {
 	t_stack	*biggest;
 	t_stack	*last;
@@ -92,7 +91,7 @@ static void lonely_max_sort(t_stack **a, t_stack **b, t_chunk *chunk)
 		lonely_sort_max_four(a, b);
 }
 
-void sort_three_top(t_stack **a)
+void	sort_three_top(t_stack **a)
 {
 	if ((*a)->next->next->order == 3)
 	{
@@ -105,7 +104,7 @@ void sort_three_top(t_stack **a)
 		ra(a, 2);
 		sa(a, 2);
 		rra(a, 2);
-		if((*a)->order == 2)
+		if ((*a)->order == 2)
 			sa(a, 2);
 		return ;
 	}
@@ -142,7 +141,8 @@ static void	sort_four(t_stack **a, t_stack **b)
 		pa(a, b, 2);
 		ft_check_swap(a, NULL);
 		pa(a, b, 2);
-	}	ft_check_swap(a, NULL);
+		ft_check_swap(a, NULL);
+	}
 }
 
 void	sort_max_top(t_stack **a, t_stack **b, t_chunk *chunk)

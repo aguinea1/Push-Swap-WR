@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:31:25 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 19:44:00 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:07:30 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ void	sort_four(t_stack **a, t_stack **b, t_chunk *chunk)
 	ft_check_swap(a, NULL);
 	if (chunk->divison == 1)
 		return ;
-}
-
-void	sort_mid_two(t_stack **a, t_stack **b)
-{
-	pa(a, b, 2);
-	pa(a, b, 2);
-	ft_check_swap(a, NULL);
 }
 
 void	sort_mid_three(t_stack **a, t_stack **b)
@@ -83,6 +76,34 @@ static void	mid_push(t_stack **a, t_stack **b, t_chunk *chunk)
 	}
 }
 
+void static	sort_mid_position_four(t_stack **a, t_stack **b, t_chunk *chunk)
+{
+	if ((*b)->order == 4 || (*b)->next->order == 4)
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+		ft_check_swap(a, b);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+	}
+	else if ((*b)->next->next->order == 4)
+	{
+		pa(a, b, 2);
+		rb(b, 2);
+		pa(a, b, 2);
+		rrb(b, 2);
+		ft_check_swap(a, b);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+	}
+	else
+		sort_four(a, b, chunk);
+}
+
 void	sort_mid(t_stack **a, t_stack **b, t_chunk *chunk)
 {
 	if (chunk_is_sorted_reverse(*b, chunk->mid_size) == 1)
@@ -91,37 +112,13 @@ void	sort_mid(t_stack **a, t_stack **b, t_chunk *chunk)
 		return ;
 	}
 	if (chunk->mid_size == 4)
-	{
-		if ((*b)->order == 4 || (*b)->next->order == 4)
-		{
-			pa(a, b, 2);
-			pa(a, b, 2);
-			ft_check_swap(a, b);
-			pa(a, b, 2);
-			ft_check_swap(a, NULL);
-			pa(a, b, 2);
-			ft_check_swap(a, NULL);
-		}
-		else if ((*b)->next->next->order == 4)
-		{
-			pa(a, b, 2);
-			rb(b, 2);
-			pa(a, b, 2);
-			rrb(b, 2);
-			ft_check_swap(a, b);
-			pa(a, b, 2);
-			ft_check_swap(a, NULL);
-			pa(a, b, 2);
-			ft_check_swap(a, NULL);
-		}
-		else
-			sort_four(a, b, chunk);
-	}
+		sort_mid_position_four(a, b, chunk);
 	else if (chunk->mid_size == 2)
-		sort_mid_two(a, b);
+	{
+		pa(a, b, 2);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+	}
 	else
 		sort_mid_three(a, b);
 }
-
-
-

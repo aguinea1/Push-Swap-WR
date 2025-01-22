@@ -6,42 +6,13 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:17:28 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 19:47:20 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 19:41:46 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../libft/libft.h"
 
-static void	min_top_4(t_stack **a, t_stack **b)
-{
-	if ((*b)->order == 4 || (*b)->next->order == 4)
-	{
-		pa(a, b, 2);
-		pa(a, b, 2);
-		ft_check_swap(a, b);
-		pa(a, b, 2);
-		ft_check_swap(a, b);
-		pa(a, b, 2);
-	}
-	else
-	{
-		pa(a, b, 2);
-		rrb(b, 2);
-		if((*b)->order == 4)
-			pa(a, b, 2);
-		else
-		{
-			rrb(b, 2);
-			pa(a, b, 2);
-		}	
-		ft_check_swap(a, b);
-		pa(a, b, 2);
-		ft_check_swap(a, NULL);
-		pa(a, b, 2);
-		ft_check_swap(a, NULL);
-	}
-}
 static void	min_top_3(t_stack **a, t_stack **b)
 {
 	if ((*b)->order == 3)
@@ -49,9 +20,9 @@ static void	min_top_3(t_stack **a, t_stack **b)
 		pa(a, b, 2);
 		pa(a, b, 2);
 		pa(a, b, 2);
-		ft_check_swap(a, NULL);;
+		ft_check_swap(a, NULL);
 	}
-	else if  ((*b)->next->order == 3)
+	else if ((*b)->next->order == 3)
 	{
 		pa(a, b, 2);
 		pa(a, b, 2);
@@ -67,23 +38,23 @@ static void	min_top_3(t_stack **a, t_stack **b)
 		ft_check_swap(a, NULL);
 		pa(a, b, 2);
 		ft_check_swap(a, NULL);
-
 	}
 }
 
-static int is_min_lonely(t_stack **b, t_chunk *chunk)
+static int	is_min_lonely(t_stack **b, t_chunk *chunk)
 {
-	t_stack *head;
-	int	i;
+	t_stack	*head;
+	int		i;
 
 	i = 1;
 	head = *b;
 	while (i++ != chunk->min_size)
-			head = head->next;
+		head = head->next;
 	if (!(head->next))
 		return (1);
 	return (0);
 }
+
 static void	min_push(t_stack **a, t_stack **b, t_chunk *chunk)
 {
 	if (chunk->min_size == 2)
@@ -126,25 +97,8 @@ void	min_is_top(t_stack **a, t_stack **b, t_chunk *chunk)
 		pa(a, b, 2);
 		pa(a, b, 2);
 	}
-	else if(chunk->min_size == 3)
+	else if (chunk->min_size == 3)
 		min_top_3(a, b);
-	else 
-	{
-
-		if ((*b)->order == 4 || (*b)->next->order == 4)
-		{
-			pa(a, b, 2);
-			pa(a, b, 2);
-			ft_check_swap(a, b);
-			pa(a, b, 2);
-			ft_check_swap(a, b);
-			pa(a, b, 2);
-		}
-		else
-			min_top_4(a, b);
-	}
+	else
+		min_is_top_else(a, b);
 }
-
-
-
-		

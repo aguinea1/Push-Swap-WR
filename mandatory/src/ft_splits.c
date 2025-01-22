@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:15:25 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 20:16:14 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:27:06 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -33,7 +33,7 @@ static t_chunk *ft_pointers(t_stack **split, t_chunk *new, int b)
 }
 
 
-t_chunk	*split_chunk_bot(t_stack **analyze, t_stack **split, int size, t_stack **a)
+t_chunk	*splchunkbot(t_stack **analyze, t_stack **split, int size, t_stack **a)
 {
 	t_chunk	*new;
 

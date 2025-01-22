@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:29:35 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/22 12:35:45 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:26:55 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static t_chunk	*decide_chunk_mid(t_stack **a, t_stack **b, t_chunk *chunk)
 		if (ft_is_bottom(chunk->mid, *b) == 0)
 			return (split_chunk(b, a, chunk->mid_size, a));
 		else
-			return (split_chunk_bot(b, a, chunk->mid_size, a));
+			return (splchunkbot(b, a, chunk->mid_size, a));
 	}
 	else
 	{
 		if (ft_is_bottom(chunk->mid, *a) == 0)
 			return (split_chunk(a, b, chunk->mid_size, a));
 		else
-			return (split_chunk_bot(a, b, chunk->mid_size, a));
+			return (splchunkbot(a, b, chunk->mid_size, a));
 	}
 }
 
@@ -51,7 +51,7 @@ t_chunk	*decide_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag)
 			|| ft_lonely(chunk->min, chunk->min_size, *b) == 1)
 			return (result = split_chunk(b, a, chunk->min_size, a), result);
 		else
-			return (result = split_chunk_bot(b, a, chunk->min_size, a), result);
+			return (result = splchunkbot(b, a, chunk->min_size, a), result);
 	}
 	else if (flag == 3)
 	{
@@ -59,7 +59,7 @@ t_chunk	*decide_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag)
 			|| ft_lonely(ft_lastnode(*a), chunk->top_size, *a) == 1)
 			return (result = split_chunk(a, b, chunk->top_size, a), result);
 		else
-			return (result = split_chunk_bot(a, b, chunk->top_size, a), result);
+			return (result = splchunkbot(a, b, chunk->top_size, a), result);
 	}
 	else
 		return (result = decide_chunk_mid(a, b, chunk), result);

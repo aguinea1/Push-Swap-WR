@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:02:24 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/21 15:16:05 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:28:13 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ static void	sorted_top(t_stack **a, t_chunk *chunk)
 		rra(a, 2);
 	}
 }
+
 void	sort_max_bot(t_stack **a, t_stack **b, t_chunk *chunk)
 {
 	if (is_bot_sorted_rev(ft_lastnode(*a), chunk->top_size) == 1)

@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 13:37:45 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/22 13:14:57 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:51:46 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,33 @@ static void	sorted_mid(t_stack **a, t_chunk *chunk)
 		rra(a, 2);
 		rra(a, 2);
 	}
-	else if(chunk->mid_size == 4)
+	else if (chunk->mid_size == 4)
 	{
 		rra(a, 2);
 		rra(a, 2);
 		rra(a, 2);
 	}
+}
+
+static void	sort_mid_bot_2part(t_stack **a, t_stack **b, t_chunk *chunk)
+{
+	if (chunk->mid->prev->prev->order == 4
+		|| chunk->mid->prev->prev->prev->order == 4)
+	{
+		rra(a, 2);
+		rra(a, 2);
+		pb(a, b, 2);
+		pb(a, b, 2);
+		rra(a, 2);
+		rra(a, 2);
+		ft_check_swap(a, b);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+		pa(a, b, 2);
+		ft_check_swap(a, NULL);
+	}
+	else
+		sort_mid_bottom_four(a, b);
 }
 
 void	sort_mid_bot(t_stack **a, t_stack **b, t_chunk *chunk)
@@ -95,24 +116,6 @@ void	sort_mid_bot(t_stack **a, t_stack **b, t_chunk *chunk)
 	}
 	else if (chunk->mid_size == 3)
 		sort_bottom_three_mid(a, b, chunk);
-
 	else
-	{
-		if (chunk->mid->prev->prev->order == 4 || chunk->mid->prev->prev->prev->order == 4)
-		{
-			rra(a, 2);
-			rra(a, 2);
-			pb(a, b, 2);
-			pb(a, b, 2);
-			rra(a, 2);
-			rra(a, 2);
-			ft_check_swap(a, b);
-			pa(a, b, 2);
-			ft_check_swap(a, NULL);
-			pa(a, b, 2);
-			ft_check_swap(a, NULL);
-		}
-		else
-			sort_mid_bottom_four(a, b);
-	}
+		sort_mid_bot_2part(a, b, chunk);
 }

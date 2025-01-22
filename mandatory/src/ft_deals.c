@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 21:48:59 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 16:12:32 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/22 21:09:24 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static void	deal_max(t_stack **analyze, t_stack **split, t_stack **a, int up)
 	}
 }
 
-void ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a)
+void	ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a)
 {
 	int		i;
 	int		max;
@@ -97,11 +97,12 @@ void ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a)
 	max = 0;
 	mid = 0;
 	small_nbr(*analyze, new->divison);
-	while (i < new->divison)
+	while (i++ < new->divison)
 	{
 		if (new->min_size >= (*analyze)->order)
 		{
-			if ((i + 1 < new->divison ) && analyze == a && (*analyze)->next->order > (new->min_size + new->mid_size))
+			if ((i + 1 < new->divison ) && analyze == a
+				&& (*analyze)->next->order > (new->min_size + new->mid_size))
 			{
 				deal_rr_min(analyze, split, max, new);
 				max++;
@@ -112,7 +113,8 @@ void ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a)
 		}
 		else if ((new->min_size + new->mid_size) >= (*analyze)->order)
 		{
-			if ((i + 1 < new->divison) && analyze != a && (*analyze)->next->order <= new->min_size)
+			if ((i + 1 < new->divison) && analyze != a
+				&& (*analyze)->next->order <= new->min_size)
 			{
 				deal_rr_mid(analyze, split, mid, new);
 				mid++;
@@ -133,7 +135,6 @@ void ft_deal(t_chunk *new, t_stack **analyze, t_stack **split, t_stack **a)
 				new->top = *analyze;
 			deal_max(analyze, split, a, 0);
 		}
-		i++;
 	}
 }
 

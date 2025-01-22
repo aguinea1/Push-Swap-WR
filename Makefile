@@ -6,7 +6,7 @@
 #    By: aguinea <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 12:22:41 by aguinea           #+#    #+#              #
-#    Updated: 2025/01/20 17:13:30 by aguinea          ###   ########.fr        #
+#    Updated: 2025/01/22 20:46:14 by aguinea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,10 @@ SRCS 			= $(SRC_DIR)/main.c							\
 				  $(SRC_DIR)/ft_deals.c						\
 				  $(SRC_DIR)/lonely_min_sort.c				\
 				  $(SRC_DIR)/optimization_double_rotate.c	\
-				  $(SRC_DIR)/sort_min_mid_bot.c
+				  $(SRC_DIR)/sort_min_mid_bot.c				\
+				  $(SRC_DIR)/chunks_sort_min_bottom_utils.c \
+				  $(SRC_DIR)/chunks_sort_min_top_utils.c	\
+				  $(SRC_DIR)/chunks_utils3.c
 
 
 SHARED_SRCS		= $(SHARED)/parsing.c			\
