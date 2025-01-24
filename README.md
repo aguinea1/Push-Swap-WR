@@ -16,4 +16,19 @@ I’m not sure if it’s the world record, but I also haven’t found any code t
 ---
 ## › Alghorithm
 
-Broadly speaking, the algorithm aims to divide the numbers enough to hardcode small sorts of 2, 3, and 4 numbers, 
+Broadly speaking, the algorithm aims to divide the numbers enough to hardcode small sorts of 2, 3, and 4 numbers. The first thing done is to divide the total numbers into three chunks, and depending on the range they fall into, they are moved to one position in the stacks or another. For example, if we have 100 numbers, the largest ones will be left at the bottom of stack A, the middle ones at the top of stack B, and the smallest ones at the bottom of stack B, so that the top of stack A is left free since that’s where we will analyze the numbers from. Once we divide the 100 numbers into 3 chunks (34, 33, and 33), we will further divide the largest chunk into 3 (12, 11, and 11) and send them to the same destinations as before:
+
+              +---------+   +---------+                +---------+   +---------+                +---------+   +---------+                +---------+   +---------+
+              |         |   |         |                |         |   |    33   |                |         |   |    11   |                |         |   |    4    |
+              |         |   |         |                |         |   |---------|                |         |   |---------|                |         |   |---------|
+              |         |   |         |                |         |   |    33   |                |         |   |    33   |                |         |   |    11   |
+              |   100   |   |         |      ======>   |    33   |   +---------+      ======>   |    11   |   |---------|   ======>      |    4    |   |---------|
+              |         |   |         |                |         |                              |         |   |    33   |                |         |   |    33   |
+              |         |   |         |                |         |                              |         |   |---------|                |         |   |---------|
+              |         |   |         |                |         |                              |         |   |    11   |                |         |   |    33   |
+              +---------+   +---------+                +---------+                              +---------+   +---------+                +---------+   |---------|
+                Stack A       Stack B                    Stack A       Stack B                    Stack A       Stack B                                |    11   |
+                                                                                                                                                       |---------|
+                                                                                                                                                       |    3    |
+                                                                                                                                                       +---------+
+                                                                                                                                           Stack A       Stack B 
