@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:15:25 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/22 13:27:06 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/24 22:52:29 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -22,7 +22,7 @@ static void	ft_rem_chunk(t_chunk **chunk)
 	(*chunk)->min = NULL;
 	free (*chunk);
 }*/
-static t_chunk *ft_pointers(t_stack **split, t_chunk *new, int b)
+static t_chunk	*ft_pointers(t_stack **split, t_chunk *new, int b)
 {
 	if (b == 0)
 	{
@@ -32,6 +32,13 @@ static t_chunk *ft_pointers(t_stack **split, t_chunk *new, int b)
 	return (new);
 }
 
+static t_chunk	*splitdebo(t_stack **s, t_stack **an, t_chunk *new, t_stack **a)
+{
+	deal_bot(s, an, new, a);
+	if (a != an)
+		new = ft_pointers(s, new, 0);
+	return (new);
+}
 
 t_chunk	*splchunkbot(t_stack **analyze, t_stack **split, int size, t_stack **a)
 {
@@ -57,13 +64,23 @@ t_chunk	*splchunkbot(t_stack **analyze, t_stack **split, int size, t_stack **a)
 		new->mid_size = size / 3;
 		new->top_size = (size / 3);
 	}
-	deal_bot(split, analyze, new,  a);
-	if	(a != analyze)
-		new = ft_pointers(split, new, 0);
+	new = splitdebo(split, analyze, new, a);
 	return (new);
 }
 
-
+static t_chunk	*spldeal(t_stack **an, t_stack **a, t_stack **spl, t_chunk *new)
+{
+	ft_deal(new, an, spl, a);
+	if (an != a)
+		new = ft_pointers(spl, new, 0);
+	if (an != a)
+		new->min = ft_lastnode(*an);
+	else
+		new->min = ft_lastnode(*spl);
+	if (an == a)
+		new->top = ft_lastnode(*an);
+	return (new);
+}
 
 t_chunk	*split_chunk(t_stack **analyze, t_stack **split, int size, t_stack **a)
 {
@@ -89,16 +106,5 @@ t_chunk	*split_chunk(t_stack **analyze, t_stack **split, int size, t_stack **a)
 		new->mid_size = size / 3;
 		new->top_size = size / 3;
 	}
-	ft_deal(new, analyze, split, a);
-	if (analyze != a)
-		new = ft_pointers(split, new, 0);
-	if (analyze != a)
-		new->min = ft_lastnode(*analyze);
-	else
-		new->min = ft_lastnode(*split);
-	if (analyze == a)
-		new->top = ft_lastnode(*analyze);
-
-	return (new);
+	return (new = spldeal(analyze, a, split, new), new);
 }
-

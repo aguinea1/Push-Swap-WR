@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:47:44 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 20:04:33 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/23 15:34:37 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sort_max(t_stack **a, t_stack **b, t_chunk *chunk)
 	if (check_max(*a, chunk->top))
 	{
 		small_nbr(*a, chunk->top_size);
-		sort_max_top(a, b, chunk);
+		sort_max_top_norm_base(a, b, chunk);
 	}
 	else
 	{
@@ -29,7 +29,6 @@ void	sort_max(t_stack **a, t_stack **b, t_chunk *chunk)
 		sort_max_bot(a, b, chunk);
 	}
 }
-
 
 int	check_max(t_stack *a, t_stack *last_max)
 {
@@ -48,7 +47,7 @@ int	check_max(t_stack *a, t_stack *last_max)
 
 int	lonely_max(t_stack **a, t_chunk *chunk)
 {
-	t_stack *head;
+	t_stack	*head;
 	int		i;
 
 	i = 1;
@@ -62,8 +61,8 @@ int	lonely_max(t_stack **a, t_chunk *chunk)
 
 int	chunk_is_sorted(t_stack *a, int size)
 {
-	int	i;
-	t_stack *head;
+	int		i;
+	t_stack	*head;
 
 	head = a->next;
 	i = 0;
@@ -78,8 +77,8 @@ int	chunk_is_sorted(t_stack *a, int size)
 
 int	chunk_is_sorted_reverse(t_stack *a, int size)
 {
-	int	i;
-	t_stack *head;
+	int		i;
+	t_stack	*head;
 
 	head = a->next;
 	i = 0;

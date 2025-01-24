@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 11:37:01 by aguinea           #+#    #+#             */
-/*   Updated: 2024/12/05 15:34:08 by aguinea          ###   ########.fr       */
+/*   Created: 2025/01/24 21:51:55 by aguinea           #+#    #+#             */
+/*   Updated: 2025/01/24 22:35:51 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,24 @@ t_stack	*ft_lastnode(t_stack *lst)
 
 long	ft_atol(const char *nptr)
 {
+	int		i;
 	int		sign;
-	int		result;
-	long	i;
+	long	num;
 
 	i = 0;
-	result = 0;
 	sign = 1;
-	while (*nptr == 32 || (8 < *nptr && *nptr < 14))
-		nptr++;
-	while (*nptr == '-' || *nptr == '+')
-	{
+	num = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
-		if (i >= 2)
-			return (0);
-	}
-	while (*nptr >= '0' && *nptr <= '9')
+	if ((nptr[i] == '-') || (nptr[i] == '+'))
 	{
-		result = result * 10 +(*nptr - '0');
-		nptr++;
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
-	return (result * sign);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+		num = (num * 10) + (nptr[i++] - '0');
+	return (num * sign);
 }
 
 int	ft_stacksize(t_stack *lst)

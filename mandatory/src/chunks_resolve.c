@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:29:35 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/22 13:26:55 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/24 22:55:28 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	spec_resolve(t_stack **a, t_stack **b)
 	recursive_chunk(a, b, chunk, 3);
 	recursive_chunk(a, b, chunk, 2);
 	recursive_chunk(a, b, chunk, 1);
+	ft_rem_chunk(&chunk);
 }
 
 static t_chunk	*decide_chunk_mid(t_stack **a, t_stack **b, t_chunk *chunk)
@@ -78,4 +79,5 @@ void	recursive_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag)
 	recursive_chunk(a, b, new, 3);
 	recursive_chunk(a, b, new, 2);
 	recursive_chunk(a, b, new, 1);
+	ft_rem_chunk(&new);
 }

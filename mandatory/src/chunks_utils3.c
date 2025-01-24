@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:45:14 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/22 21:09:17 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/23 10:54:04 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_stack(t_stack **a, t_chunk *chunk)
 	}
 	return (0);
 }
-
+/*
 void	deal_bot(t_stack **split, t_stack **analyze, t_chunk *new, t_stack **a)
 {
 	int		i;
@@ -68,4 +68,4 @@ void	deal_bot(t_stack **split, t_stack **analyze, t_chunk *new, t_stack **a)
 	}
 	if (analyze == a)
 			new->min = ft_lastnode(*split);
-}
+}*/

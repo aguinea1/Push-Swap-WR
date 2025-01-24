@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:20:00 by aguinea           #+#    #+#             */
-/*   Updated: 2024/12/05 14:50:32 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/24 22:07:42 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	error_dup(char **arr)
 		j = i + 1;
 		while (arr[j])
 		{
-			if (ft_atol(arr[i]) == ft_atol(arr[j]))
+			if (ft_atoi(arr[i]) == ft_atoi(arr[j]))
 				return (0);
 			j++;
 		}
@@ -59,12 +59,14 @@ int	error_dup(char **arr)
 
 int	error_int(char **arr)
 {
-	int	i;
+	int		i;
+	long	nbr;
 
-	i = 0;
+	i = 1;
 	while (arr[i])
 	{
-		if (ft_atol(arr[i]) > INT_MAX || ft_atol(arr[i]) < INT_MIN)
+		nbr = ft_atol(arr[i]);
+		if (nbr > 2147483647 || nbr < INT_MIN)
 			return (0);
 		i++;
 	}

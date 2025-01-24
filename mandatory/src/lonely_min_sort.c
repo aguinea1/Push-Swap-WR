@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:36:20 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/20 12:54:54 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/23 15:05:42 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ static void	lonely_min_four(t_stack **a, t_stack **b)
 		rrb(b, 2);
 		rrb(b, 2);
 	}
-		pa(a, b, 2);
-		pa(a, b, 2);
-		ft_check_swap(a, b);
-		pa(a, b, 2);
-		ft_check_swap(a, NULL);
-		pa(a, b, 2);
-		ft_check_swap(a, NULL);
+	pa(a, b, 2);
+	pa(a, b, 2);
+	ft_check_swap(a, b);
+	pa(a, b, 2);
+	ft_check_swap(a, NULL);
+	pa(a, b, 2);
+	ft_check_swap(a, NULL);
 }
 
-static void lonely_min_three(t_stack **a, t_stack **b)
+static void	lonely_min_three(t_stack **a, t_stack **b)
 {
 	if ((*b)->next->next->order == 3)
 		rrb(b, 2);
@@ -43,7 +43,6 @@ static void lonely_min_three(t_stack **a, t_stack **b)
 	pa(a, b, 2);
 	ft_check_swap(a, NULL);
 }
-
 
 void	min_lonely_sort(t_stack **a, t_stack **b, t_chunk *chunk)
 {

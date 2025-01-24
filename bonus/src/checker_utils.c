@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 17:33:29 by aguinea           #+#    #+#             */
-/*   Updated: 2024/12/07 13:55:49 by aguinea          ###   ########.fr       */
+/*   Created: 2024/12/07 13:09:32 by aguinea           #+#    #+#             */
+/*   Updated: 2024/12/07 13:10:01 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "../include/checker.h"
 
-# include "../../mandatory/include/push_swap.h"
-# include "../../mandatory/libft/libft.h"
+void	error(t_stack **b, t_stack **a)
+{
+	error_free(b);
+	error_free(a);
+	ft_printf("Error\n");
+	exit (1);
+}
 
-int		main(int ac, char **av);
-void	error(t_stack **b, t_stack **a);
-bool	ft_strcmp(char	*s1, char *output);
+bool	ft_strcmp(char	*s1, char *output)
+{
+	int	i;
 
-#endif	
+	i = -1;
+	while (s1[++i] != '\0' && output[i] != '\0')
+	{
+		if (s1[i] - output[i] != 0)
+			return (false);
+	}
+	return (true);
+}
