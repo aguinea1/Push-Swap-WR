@@ -6,7 +6,7 @@
 #    By: aguinea <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 12:22:41 by aguinea           #+#    #+#              #
-#    Updated: 2025/01/24 22:59:46 by aguinea          ###   ########.fr        #
+#    Updated: 2025/01/24 23:19:02 by aguinea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ NAME 			= push_swap
 BONUS			= checker
 
 CC 				= cc
-CFLAGS 			= -Wall -Werror -Wextra -g
+CFLAGS 			= -Wall -Werror -Wextra -g -fsanitize=address
 
 MAKE_LIB 		= ar -rcs
 
