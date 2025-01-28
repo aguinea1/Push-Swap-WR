@@ -6,7 +6,7 @@
 /*   By: aguinea <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:29:35 by aguinea           #+#    #+#             */
-/*   Updated: 2025/01/24 22:55:28 by aguinea          ###   ########.fr       */
+/*   Updated: 2025/01/28 17:36:42 by aguinea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	recursive_chunk(t_stack **a, t_stack **b, t_chunk *chunk, int flag)
 {
 	t_chunk	*new;
 
-	if (chunk->min_size < 5)
+	if (chunk->divison < 13)
 	{
 		small_sort(a, b, chunk, flag);
 		return ;
