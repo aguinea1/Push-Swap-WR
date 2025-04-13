@@ -1,22 +1,51 @@
- [<img src="https://img.shields.io/badge/42-000000.svg?style=for-the-badge&logo=42&logoColor=white"/>](https://profile.intra.42.fr/users/aguinea)
 <h1 align="center">
 	PUSH SWAP WR
 </h1>
-Push Swap it's an algorithm project where you receive between 2 and an infinite quantity of numbers and the goal is to return all the numbers in order with the minimum number of movements (the less, the better). You have to columns (Stack A & Stack B), that you can use to sort the numbers
+
+<p align="center">
+	<img src="https://img.shields.io/badge/Language-C-blue?style=flat-square"/>
+	<img src="https://img.shields.io/badge/Stacks-A%20%26%20B-yellow?style=flat-square"/>
+	<img src="https://img.shields.io/badge/500%20Numbers-4150%20Moves-brightgreen?style=flat-square"/>
+</p>
 
 ---
-In this README, I will go straight to the explanation of the algorithm, but in this [other repo](https://github.com/aguinea1/Push-Swap-Turco), I have the explanation and functionality of the program, as well as the explanation of a much simpler algorithm with which you can also achieve 100/100.
+
+## 🧠 What is Push Swap?
+
+Push Swap is an algorithmic challenge where the goal is to sort a sequence of numbers using two stacks (**A** and **B**) and a limited set of operations. The challenge is to **sort efficiently with the fewest number of moves possible**.
+
+In this version, the algorithm achieves an average of **~4150 moves for 500 numbers**, making it one of the most optimized publicly available solutions.
+
+> ⚠️ This README focuses on explaining the **algorithmic strategy**. For a breakdown of program functionality, usage, and a simpler version of the algorithm, check out this other repo: [Push-Swap-Turco](https://github.com/aguinea1/Push-Swap-Turco)
 
 ---
-## › Introduction
 
-This algorithm is based on the algorithm developed by a Korean, and both I and a friend from 42 Barcelona have developed our own idea and optimizations. However, each of us has our own code format, which is why I’m sharing their GitHub here [(lbellmas)](https://github.com/lbellmas).
-I’m not sure if it’s the world record, but I also haven’t found any code that consistently averages 4150 moves to sort 500 numbers.
+## 🚀 Highlights
+
+- ⚡️ Average of **4150 moves** for sorting 500 numbers
+- 🔍 Advanced chunk division and value distribution
+- 🧩 Hardcoded mini-sort logic for small cases
+- 💡 Inspired by Korean optimizations, rethought and adapted
 
 ---
-## › Alghorithm
 
-Broadly speaking, the algorithm aims to divide the numbers enough to hardcode small sorts of 2, 3, and 4 numbers. The first thing done is to divide the total numbers into three chunks, and depending on the range they fall into, they are moved to one position in the stacks or another. For example, if we have 100 numbers, the largest ones will be left at the bottom of stack A, the middle ones at the top of stack B, and the smallest ones at the bottom of stack B, so that the top of stack A is left free since that’s where we will analyze the numbers from. Once we divide the 100 numbers into 3 chunks (34, 33, and 33), we will further divide the largest chunk into 3 (12, 11, and 11) and send them to the same destinations as before:
+## 🧩 Algorithm Overview
+
+The algorithm is based on splitting the input into progressively smaller **value chunks** and strategically pushing them between stacks based on their relative size. The idea is to isolate and order small groups of numbers (2, 3, or 4) and then reassemble the full sorted list.
+
+- Step 1: Split numbers into 3 major chunks based on value range.
+- Step 2: Push values to specific zones in Stack A or Stack B:
+  - 🔽 Larger numbers → bottom of A  
+  - 🟨 Medium numbers → top of B  
+  - 🔼 Smaller numbers → bottom of B
+  - 📝 The splitting distribution it's going to change depending on the splited chunk place.
+- Step 3: Further split the largest chunk again into smaller parts and repeat the distribution logic.
+
+---
+
+## 📊 Chunking Visualization
+
+Here’s a visual explanation of how values are distributed across stacks:
 
               +---------+   +---------+                +---------+   +---------+                +---------+   +---------+                +---------+   +---------+
               |         |   |         |                |         |   |    33   |                |         |   |    11   |                |         |   |    4    |
@@ -32,3 +61,35 @@ Broadly speaking, the algorithm aims to divide the numbers enough to hardcode sm
                                                                                                                                                        |    3    |
                                                                                                                                                        +---------+
                                                                                                                                            Stack A       Stack B 
+
+
+      
+---
+
+## ⚙️ How It Works
+
+- **Hardcoding mini-cases**: Sorts of 2–4 numbers are done manually and quickly without recursion.
+- **Chunk targeting**: Each number’s destination is selected based on its value rank and current chunk.
+- **Smart rotations**: Optimized `rotate`, `reverse rotate`, and `push` operations are used to minimize step count.
+- **Greedy insertion**: During the merge phase, numbers are reinserted into Stack A in the most efficient position possible.
+
+---
+
+## 🤝 Credits
+
+This version of the algorithm was inspired by a Korean optimization shared among peers.  
+It was independently developed and implemented by myself, with additional discussions and brainstorming with [@lbellmas](https://github.com/lbellmas).  
+Despite trying to find similar results online, I haven’t found other public solutions that maintain consistent performance at this level.
+
+---
+
+## 📫 Contact
+
+Feel free to reach out or explore more of my work:
+
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white"/>](https://www.linkedin.com/in/aitor-guinea-961635348/)
+[<img src="https://img.shields.io/badge/GitHub-aguinea1-black?style=flat-square&logo=github"/>](https://github.com/aguinea1)
+[<img src="https://img.shields.io/badge/Email-aguinea1@gmail.com-red?style=flat-square&logo=gmail&logoColor=white"/>](mailto:aguinea1@gmail.com)
+
+---
+⭐
